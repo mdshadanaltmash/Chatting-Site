@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<br>
+<div class="jumbotron text-center">
+    {% if session.logged_in == NULL%}
+        <h1>Welcome to Chatting App</h1>
+        <p class="lead">This is a chatting application developed by Meenal and Shadan.<br> For the fulfilment requirement of their degree</p>
+          <p class="lead">This app has been built using technologies-<br> Front-End (i) HTML5 (ii) CSS3 (iii) JavaScript (iv) Ajax (v) Bootstrap <br>(i) Python - Flask Framework (ii) MySQL</p>
+        <a href="/register" class="btn btn-primary btn-lg">Sign Up</a>
+        <a href="/login" class="btn btn-success btn-lg">Login</a>
+    {% else %}
+        <h1>Hi {{ session.s_name }}</h1>
+        <p class="lead">This app has been built using technologies-<br> Front-End (i) HTML5 (ii) CSS3 (iii) JavaScript (iv) Ajax (v) Bootstrap <br>For Backend - (i) Python - Flask Framework (ii) MySQL</p>
+        <a href="/chatting/{{ session.uid }}" class="btn btn-primary btn-lg">Start Chat Session</a>
+    {% endif %}
+</div>
+{% endblock %}
